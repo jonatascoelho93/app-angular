@@ -14,6 +14,10 @@ import { ListaComponent } from './lista/lista.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { NotFoundComponent } from './error/notFound.component'
 
+//services
+
+import { CursosService } from './services/cursos.service'
+
 
 @NgModule({
   imports: [BrowserModule, RouterModule.forRoot(appRoutes), FormsModule], //modulos usados na aplicação
@@ -23,6 +27,7 @@ import { NotFoundComponent } from './error/notFound.component'
     ListaComponent,
     CadastroComponent,
     NotFoundComponent], // componentes usados na aplicação
+  providers: [CursosService], // Services  
   bootstrap: [AppComponent] // incica qual componente inicial da aplicação
 })
 export class AppModule { }

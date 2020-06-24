@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ICurso } from '../classes/interface.curso'
+import { CursosService } from '../services/cursos.service'
 
 @Component({
     moduleId: module.id,
@@ -8,12 +9,10 @@ import { ICurso } from '../classes/interface.curso'
 
 export class ListaComponent {
 
-    public listaCursos: ICurso[] = [
-        { codigo: 10, descricao: 'Java', ch: 80 },
-        { codigo: 11, descricao: 'C# Fundamentos', ch: 40 },
-        { codigo: 12, descricao: 'JavaScript', ch: 40 },
-        { codigo: 13, descricao: 'Excel Basico ', ch: 40 }
+    public listaCursos: ICurso[];
 
-    ];
+    constructor(cursosService: CursosService){
+        this.listaCursos = cursosService.getListaCursos();
+    };
 
 };
