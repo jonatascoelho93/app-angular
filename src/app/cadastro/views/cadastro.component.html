@@ -1,10 +1,20 @@
 <form>
     <div class="form-group">
-      <label for="formGroupExampleInput">ID</label>
-      <input type="number" class="form-control" id="formGroupExampleInput" placeholder="999">
+      <label for="formGroupExampleInput">Código</label>
+      <input type="text" value="{{curso.codigo}}" class="form-control" id="codigo">
     </div>
     <div class="form-group">
-      <label for="formGroupExampleInput2">Curso</label>
-      <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Nome do curso">
+      <label for="formGroupExampleInput2">Descrição</label>
+      <input type="text" value="{{curso.descricao}}" class="form-control" id="descricao">
+    </div>
+    <div class="form-group">
+      <label for="formGroupExampleInput">Carga horária</label>
+      <input type="number" value="{{curso.ch}}" class="form-control" id="codigo">
+    </div>
+    <div>
+      <button type="button" class="btn btn-info">
+        <span class="glyphicon glyphicon-pencil"></span>
+        Incluir
+      </button>
     </div>
   </form>
