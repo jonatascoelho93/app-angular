@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router' // modulo de rota 
+import { RouterModule } from '@angular/router' // modulo de rota
+import { FormsModule } from '@angular/forms' // modulo ng forms
 
 import { appRoutes } from './rotas/app.routes' //deve vir primeiro
 
@@ -15,13 +16,13 @@ import { NotFoundComponent } from './error/notFound.component'
 
 
 @NgModule({
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes)], //modulos usados na aplicação
+  imports: [BrowserModule, RouterModule.forRoot(appRoutes), FormsModule], //modulos usados na aplicação
   declarations: [AppComponent,
-                MenuComponent,
-                LogoComponent,
-                ListaComponent,
-                CadastroComponent,
-                NotFoundComponent], // componentes usados na aplicação
+    MenuComponent,
+    LogoComponent,
+    ListaComponent,
+    CadastroComponent,
+    NotFoundComponent], // componentes usados na aplicação
   bootstrap: [AppComponent] // incica qual componente inicial da aplicação
 })
 export class AppModule { }
