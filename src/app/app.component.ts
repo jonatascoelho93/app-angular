@@ -6,4 +6,4 @@ import {} from'./menu/menu.component';
   selector: 'my-app',
   template: `<menu></menu>`,
 })
-export class AppComponent  { name = 'Angular'; }
+export class AppComponent {}
