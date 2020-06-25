@@ -10,5 +10,6 @@ import { Component } from '@angular/core';
 export class MenuComponent {
     titulo_empresa: string = "Impacta"
     titulo1: string = "Listar Cursos";
-    titulo2: string = "Incluir Curso"
+    titulo2: string = "Incluir Curso";
+    titulo_masterdetail = "Master/Detail";
 }

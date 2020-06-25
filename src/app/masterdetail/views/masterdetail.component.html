@@ -1,0 +1,49 @@
+<div class="container margem">
+    <h1>MASTER/DETAIL</h1>
+    <hr />
+    <div class="row">
+
+        <!-- Incluindo evento click na lista-->
+        <div class="col-md-6">
+            <ul class="list_group">
+                <li *ngFor="let item of listaCursos" (click)="selecionar(item)"
+                    class="list-group-item d-flex justify-content-between align-items-center">
+                    <a [routerLink]="['/masterdetail']"
+                        [class.selecionado]="item === cursoSelecionado">{{item.descricao}}</a>
+                    <span class="badge badge-secondary">{{item.codigo}}</span>
+
+                </li>
+            </ul>
+            <button type="button" (click)="novo()" class="btn btn-info">
+                <span class="glyphicon glyphicon-pus"></span>
+                Novo
+            </button>
+        </div>
+
+        <!-- Incluindo o formulario-->
+        <div *ngIf="cursoSelecionado" class="col-md-6">
+            <!-- ngIfsó carrega quando o curso selecionado é definido-->
+            <div class="form-group">
+                <label for="codigo">Código: </label>
+                <input type="text" [(ngModel)]="cursoSelecionado.codigo" class="form-control" id="codigo" name="codigo">
+            </div>
+            <div class="form-group">
+                <label for="descricao">Descrição: </label>
+                <input type="text" [(ngModel)]="cursoSelecionado.descricao" class="form-control" id="descricao"
+                    name="descricao">
+            </div>
+            <div class="form-group">
+                <label for="ch">Carga horária: </label>
+                <input type="number" [(ngModel)]="cursoSelecionado.ch" class="form-control" id="ch" name="ch">
+            </div>
+            <div class="form-group">
+                <button type="button" (click)="incluir(cursoSelecionado)" class="btn btn-info">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    Incluir
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+</div>

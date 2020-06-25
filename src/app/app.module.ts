@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router' // modulo de rota
-import { FormsModule } from '@angular/forms' // modulo ng forms
+import { FormsModule } from '@angular/forms' // modulo ng forms / vinculo bidirecional utiliza
 
 import { appRoutes } from './rotas/app.routes' //deve vir primeiro
 
@@ -12,7 +12,8 @@ import { MenuComponent } from './menu/menu.component';
 import { LogoComponent } from './logo/logo.component';
 import { ListaComponent } from './lista/lista.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
-import { NotFoundComponent } from './error/notFound.component'
+import { NotFoundComponent } from './error/notFound.component';
+import { MasterDetailComponent } from './masterdetail/masterdetail.component'
 
 //services
 
@@ -26,6 +27,7 @@ import { CursosService } from './services/cursos.service'
     LogoComponent,
     ListaComponent,
     CadastroComponent,
+    MasterDetailComponent,
     NotFoundComponent], // componentes usados na aplicação
   providers: [CursosService], // Services  
   bootstrap: [AppComponent] // incica qual componente inicial da aplicação

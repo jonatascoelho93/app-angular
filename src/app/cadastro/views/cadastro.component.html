@@ -1,20 +1,28 @@
-<form>
+<div class="container margem">
+  <h1>Cadastro de Cursos</h1>
+  <h3>Código: {{curso.codigo}}</h3>
+  <h3>Descrição: {{curso.descricao}}</h3>
+  <h3>Carga horária: {{curso.ch}}</h3>
+
+  <div class="col-md-12">
     <div class="form-group">
-      <label for="formGroupExampleInput">Código</label>
-      <input type="text" value="{{curso.codigo}}" class="form-control" id="codigo">
+      <label for="codigo">Código: </label>
+      <input type="text" [(ngModel)]="curso.codigo" class="form-control" id="codigo" name="codigo">
     </div>
     <div class="form-group">
-      <label for="formGroupExampleInput2">Descrição</label>
-      <input type="text" value="{{curso.descricao}}" class="form-control" id="descricao">
+      <label for="descricao">Descrição: </label>
+      <input type="text" [(ngModel)]="curso.descricao" class="form-control" id="descricao" name="descricao">
     </div>
     <div class="form-group">
-      <label for="formGroupExampleInput">Carga horária</label>
-      <input type="number" value="{{curso.ch}}" class="form-control" id="codigo">
+      <label for="ch">Carga horária: </label>
+      <input type="number" [(ngModel)]="curso.ch" class="form-control" id="ch" name="ch">
     </div>
-    <div>
+    <div class="form-group">
       <button type="button" class="btn btn-info">
         <span class="glyphicon glyphicon-pencil"></span>
         Incluir
       </button>
     </div>
-  </form>
+
+  </div>
+</div>
