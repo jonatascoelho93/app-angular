@@ -1,17 +1,28 @@
-<table class="table table-striped">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Descrição Curso</th>
-        <th scope="col">Carga Horaria</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor = "let item of listaCursos">
-        <th scope="row">{{item.codigo}}</th>
-        <td>{{item.descricao}}</td>
-        <td>{{item.ch}}</td>
+<div class="container margem">
+  <h1>Listagem de Cursos</h1>
+  <div class="col-md-12">
+    <div class="form-group">
+      <label for='codigo'>Informe a descrição</label>
+      <input type="text" #busca (keyup)="0" class="form-control" placeholder="filtrar pela descrição">
+    </div>
+    <div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Descrição Curso</th>
+            <th scope="col">Carga Horaria</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of listaCursos | sublista:busca.value">
+            <th scope="row">{{item.codigo}}</th>
+            <td>{{item.descricao | uppercase}}</td> <!-- Filtros upper, existem varios verificar documentação-->
+            <td>{{item.ch}}</td>
 
-      </tr>
-    </tbody>
-  </table>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

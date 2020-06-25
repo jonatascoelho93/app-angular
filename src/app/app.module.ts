@@ -7,6 +7,8 @@ import { appRoutes } from './rotas/app.routes' //deve vir primeiro
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
+import { VerificaCh } from './filters/verificarch.filter';
+import { SubLista } from './filters/sublista.filter';
 
 //rotas
 import { LogoComponent } from './logo/logo.component';
@@ -28,7 +30,9 @@ import { CursosService } from './services/cursos.service'
     ListaComponent,
     CadastroComponent,
     MasterDetailComponent,
-    NotFoundComponent], // componentes usados na aplicação
+    NotFoundComponent,
+    VerificaCh,
+    SubLista], // componentes usados na aplicação
   providers: [CursosService], // Services  
   bootstrap: [AppComponent] // incica qual componente inicial da aplicação
 })
