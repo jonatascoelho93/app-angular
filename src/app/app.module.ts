@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router' // modulo de rota
-import { FormsModule } from '@angular/forms' // modulo ng forms / vinculo bidirecional utiliza
+import { RouterModule } from '@angular/router'; // modulo de rota
+import { FormsModule } from '@angular/forms'; // modulo ng forms / vinculo bidirecional utiliza
+
+import { HttpModule } from '@angular/http';
 
 import { appRoutes } from './rotas/app.routes' //deve vir primeiro
-
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { VerificaCh } from './filters/verificarch.filter';
@@ -15,15 +16,16 @@ import { LogoComponent } from './logo/logo.component';
 import { ListaComponent } from './lista/lista.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { NotFoundComponent } from './error/notFound.component';
-import { MasterDetailComponent } from './masterdetail/masterdetail.component'
+import { MasterDetailComponent } from './masterdetail/masterdetail.component';
 
 //services
 
-import { CursosService } from './services/cursos.service'
+import { CursosService } from './services/cursos.service';
 
 
 @NgModule({
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes), FormsModule], //modulos usados na aplicação
+  imports: [BrowserModule, RouterModule.forRoot(appRoutes), FormsModule,
+    HttpModule], //modulos usados na aplicação
   declarations: [AppComponent,
     MenuComponent,
     LogoComponent,

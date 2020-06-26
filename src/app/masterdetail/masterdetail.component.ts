@@ -18,8 +18,11 @@ export class MasterDetailComponent {
     }
 
     public listaCursos: ICurso[];
+
     constructor(cursoService: CursosService) {
-        this.listaCursos = cursoService.getListaCursos();
+        //this.listaCursos = cursoService.getListaCursos();
+        cursoService.getCursos().subscribe(res => this.listaCursos = res,
+            error => alert(error), () => console.log("Finalizado"));
     }
 
     public novo(): void {
