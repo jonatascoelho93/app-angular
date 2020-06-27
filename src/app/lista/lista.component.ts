@@ -12,7 +12,9 @@ export class ListaComponent {
     public listaCursos: ICurso[];
 
     constructor(cursosService: CursosService){
-        this.listaCursos = cursosService.getListaCursos();
+        //this.listaCursos = cursosService.getListaCursos();
+        cursosService.getCursos().subscribe(res => this.listaCursos = res,
+            error => alert(error), () => console.log("Finalizado"));
     };
 
 };

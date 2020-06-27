@@ -1,27 +1,33 @@
 <div class="container margem">
-    <h1>MASTER/DETAIL</h1>
+    <h1>Master/Detail</h1>
     <hr />
     <div class="row">
 
         <!-- Incluindo evento click na lista-->
         <div class="col-md-6">
-            <!--<div class="form-group">
-                <label for='codigo'>Informe a descrição</label>
-                <input type="text" #busca (keyup)="0" class="form-control" placeholder="filtrar pela descrição">
-            </div>-->
-            <ul class="list_group">
-                <li *ngFor="let item of listaCursos" (click)="selecionar(item)"
+
+
+            <ul class="list-group">
+                <div class="form-group">
+                    <label for='codigo'>Informe a descrição</label>
+                    <input type="text" #busca (keyup)="0" class="form-control" placeholder="filtrar pela descrição">
+                </div>
+
+                <li *ngFor="let item of listaCursos | sublista:busca.value" (click)="selecionar(item)"
                     class="list-group-item d-flex justify-content-between align-items-center">
                     <a [routerLink]="['/masterdetail']"
                         [class.selecionado]="item === cursoSelecionado">{{item.descricao}}</a>
                     <span class="badge badge-secondary">{{item.codigo}}</span>
 
                 </li>
+
             </ul>
-            <button type="button" (click)="novo()" class="btn btn-info">
-                <span class="glyphicon glyphicon-pus"></span>
-                Novo
-            </button>
+            <div>
+                <button type="button" (click)="novo()" class="btn btn-info">
+                    <span class="glyphicon glyphicon-pus"></span>
+                    Novo
+                </button>
+            </div>
         </div>
 
         <!-- Incluindo o formulario-->
@@ -29,7 +35,7 @@
             <!-- ngIfsó carrega quando o curso selecionado é definido-->
             <div class="form-group">
                 <label for="codigo">Código: </label>
-                <input type="text" [(ngModel)]="cursoSelecionado.codigo" class="form-control" id="codigo" name="codigo">
+                <input type="number" [(ngModel)]="cursoSelecionado.codigo" class="form-control" id="codigo" name="codigo">
             </div>
             <div class="form-group">
                 <label for="descricao">Descrição: </label>

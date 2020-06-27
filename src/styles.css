@@ -8,6 +8,8 @@ h1 {
   margin-top: 50px;
 }
 
-.selecionado {
-  background-color: silver;
+.selecionado{
+  color: #fff;
+  background-color: #007bff;
+  border-color: #007bff;
 }

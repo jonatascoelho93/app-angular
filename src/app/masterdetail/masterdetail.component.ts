@@ -19,9 +19,13 @@ export class MasterDetailComponent {
 
     public listaCursos: ICurso[];
 
-    constructor(cursoService: CursosService) {
-        //this.listaCursos = cursoService.getListaCursos();
-        cursoService.getCursos().subscribe(res => this.listaCursos = res,
+    constructor(private cursosService: CursosService) {
+        this.listar();
+
+    }
+
+    public listar(): void {
+        this.cursosService.getCursos().subscribe(res => this.listaCursos = res,
             error => alert(error), () => console.log("Finalizado"));
     }
 
@@ -30,8 +34,10 @@ export class MasterDetailComponent {
         this.cursoSelecionado = this.novoCurso;
     }
 
-    public incluir(curso: ICurso) : void{
-        this.listaCursos.push(curso);
+    public incluir(curso: ICurso): void {
+        //this.listaCursos.push(curso);
+        this.cursosService.setCurso(curso)
+            .subscribe(res => JSON.stringify(res), error => console.log(error), () => this.listar()),
         alert('Curso incluido com sucesso');
     }
 
