@@ -11,8 +11,17 @@ export class CursosService {
     public constructor(private _http: Http) { }
     private url: string = "http://localhost:8080/curso"
 
+    private heandleError(error: Response): Observable<ICurso[]> {
+        const conteudo = error.json();
+        const erro = conteudo.error() || JSON.stringify(conteudo);
+
+        let msgErro = `Codigo: ${error.status} - Descrição: ${erro}`;
+        return Observable.throw(msgErro);
+
+    };
+
     public getCursos(): Observable<ICurso[]> {
-        return this._http.get(this.url).map(res => res.json()); //resposta no formato json map..
+        return this._http.get(this.url).map(res => res.json()).catch(this.heandleError); //resposta no formato json map..
     }
 
     public setCurso(curso: ICurso): Observable<ICurso> {
